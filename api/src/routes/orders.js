@@ -4,8 +4,6 @@ const {Orden, LineaDeOrden, Product, User, Checkout} = require('../db.js');
 const {Sequelize:{Op}} = require('sequelize')
 const {isAdmin, isAuthenticated} =require('../middleware/helper');
 const linkPago = require('../middleware/mercadopago');
-//const {productos} = require('../../../client/src/redux/carrito')
-//const {variable} = require('./user')
 const {View} = require('grandjs')
 View.settings.set("views", "../views");
 const Tabla = View.importJsx('../../views/transactional.jsx')

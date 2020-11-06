@@ -3,7 +3,6 @@ const { Category } = require('../db.js');
 const {isAdmin, isAuthenticated} =require('../middleware/helper');
 
 //S18: Crear ruta para crear/agregar Categoria
-// res 201 Created. El request se ha competado y se a creado un nuevo recurso
 server.post('/', isAdmin, (req, res) => {
     const { name, description} = req.body
     Category.create({name, description})
@@ -14,9 +13,8 @@ server.post('/', isAdmin, (req, res) => {
             res.status(400).json('No se pudo crear categoria')
         })
 })
-//S19: Crear Ruta para eliminar Categoria
-// res 200 OK. res Correcto
-// res 404 Not Found. 
+
+//S19: Crear Ruta para eliminar Categoria 
 server.delete('/:id', isAdmin, (req, res) =>{
     const id  =  req.params.id;
     Category.destroy({
@@ -33,9 +31,8 @@ server.delete('/:id', isAdmin, (req, res) =>{
         res.status(404).json({message: 'Elemento no encontrado', error })
     })
 })
+
 //S20: Crear ruta para Modificar Categoria
-// res 200 OK. res Correcto
-// res 404 Not Found. 
 server.put('/:id', isAdmin, (req, res) =>{
     const id = req.params.id;
     const { name, description, price, stock, image} = req.body

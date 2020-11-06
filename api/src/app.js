@@ -7,8 +7,6 @@ const routes = require('./routes/index.js');
 //-----------------PASSPORTjs---------------------------//
 const passport = require('passport');
 const session = require('express-session')
-//const LocalStrategy = require('passport-local').Strategy;
-//const bcrypt = require('bcript')
 //------------------------------------------------------//
 require('./db.js');
 
@@ -48,14 +46,6 @@ require("./middleware/passport-facebook")
 require("./middleware/passport-google");
 require("./middleware/passport-config");
 //-----------------------------------------------------//
-server.use((req,res,next)=>{
-  // console.log(req.user)
-  // console.log(req.session)
-
-  next();
-})
-
-
 server.use('/', routes);
 
 // Error catching endware.

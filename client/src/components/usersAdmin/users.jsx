@@ -1,8 +1,7 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
-import axios from 'axios';
 import {useSelector} from 'react-redux';
-
+import axios from 'axios';
 
 const Users = () => {
 
@@ -31,8 +30,7 @@ const Users = () => {
 
   const promoteUser = async (id,status) => {
 
-    await axios.post(`http://localhost:3001/auth/promote/${id}?status=${status}`,null , { withCredentials: true })
-
+    await axios.post(`http://localhost:3001/auth/promote/${id}?status=${status}`, null , { withCredentials: true })
     getUsers();
   }
 

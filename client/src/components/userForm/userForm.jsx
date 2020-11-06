@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import axios from 'axios';
-import { useForm } from 'react-hook-form';
-import {FormGroup, Form, Button, Label, Input, UncontrolledAlert} from 'reactstrap';
 import {useHistory} from 'react-router-dom'
+import { useForm } from 'react-hook-form';
+import {FormGroup, Form, Label, UncontrolledAlert} from 'reactstrap';
+import axios from 'axios';
 
 export default function UserForm() {
   const {register, errors, handleSubmit} = useForm();
@@ -22,18 +22,6 @@ export default function UserForm() {
     setVisible(true)
     }
   };
-
-  // const onEnterKey = e => {
-  //   if (e.key === 'Enter') handleRegister(e);
-  // };
-  // const handleSubmit =  e => {
-  //   e.preventDefault();
-  //   handleRegister();
-  //   setUserData ({
-  //     email:'',
-  //     password:''
-  //   })
-  // }
   
   const onSubmit = (data, e) =>{
     console.log(data)
@@ -44,16 +32,7 @@ export default function UserForm() {
   const onDismiss = () => setVisible(false);
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)} className="col-sm-6 order-sm-2 offset-sm-1 mt-5">
-      {/* <label>
-        Email:
-        <input type="email" name="email" value={userData && userData.email} placeholder="Email" onChange={handleInputChange} onKeyPress={onEnterKey}/>
-      </label>
-      <label>
-      Contraseña:
-      <input type="password" name="password"  value={userData && userData.password} placeholder="Contraseña" onChange={handleInputChange} onKeyPress={onEnterKey}/>
-      </label>
-      <button type="submit">Registrer</button> */}
+    <Form onSubmit={handleSubmit(onSubmit)} className="col-sm-6 order-sm-2 offset-sm-1 mt-5">    
       <h4>Completa con tus datos para crear tu cuenta</h4>
       <h6>¡Disfruta de los beneficios exclusivos de la comunidad Henry Comic!</h6>
       <FormGroup>
@@ -108,8 +87,7 @@ export default function UserForm() {
         <span className="text-danger text-small d-block mb-2">
           {errors?.password?.message}
         </span>
-      </FormGroup>
-      
+      </FormGroup>      
       <button type="submit" className="btn btn-danger">Crear cuenta</button>
       {usuarioCreado ? 
         <UncontrolledAlert className= 'alert col-4' color="success" isOpen={visible} toggle={onDismiss} >

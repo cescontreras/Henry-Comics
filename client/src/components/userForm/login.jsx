@@ -1,13 +1,13 @@
 import React,{useEffect} from 'react'
-import { useForm } from 'react-hook-form';
-import {FormGroup, Form, Button, Label, Input} from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLogin } from '../../redux/users';
-import {localToUser} from '../../redux/carrito'
 import {useHistory, Link} from 'react-router-dom'
+import { useForm } from 'react-hook-form';
+import {FormGroup, Form, Label} from 'reactstrap';
 import GoogleButton from 'react-google-button'
 import { FacebookLoginButton } from "react-social-login-buttons";
 import './login.css'
+import { getLogin } from '../../redux/users';
+import {localToUser} from '../../redux/carrito'
 
 const Login =() =>{
 
@@ -52,11 +52,8 @@ const Login =() =>{
               ref={register({
                 required:{
                   value:true,
-                  message:"Usuario es requerido."}
-                // pattern:{
-                //   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                //   message: 'Favor ingresar email ejemplo@email.com'
-                // }
+                  message:"Usuario es requerido."
+                }                
               })}
             />
             <span className="text-danger text-small d-block mb-2">

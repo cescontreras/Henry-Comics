@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { ListGroup, ListGroupItem, Badge} from 'reactstrap';
-import Orden from '../ordenes/orden';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './ordenesAdmin.css';
-
+import Orden from '../ordenes/orden';
 
 const OrderTable = () => {
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import './newsgrid.css';
 
-
 const NewProduct = (props) => {
   return (
     <div className="wrapper-index">

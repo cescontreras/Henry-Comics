@@ -22,23 +22,17 @@ passport.use(
   })
 )
 
-  passport.serializeUser((user, cb) => {
-    // console.log('serie', user);
-    
+  passport.serializeUser((user, cb) => { 
     cb(null, user.id);
   });
 
-  passport.deserializeUser( async (id, cb) => {
-    // console.log(id,"holaaaa")
-    
+  passport.deserializeUser( async (id, cb) => {    
     await User.findOne({where:{id:id}})
      .then(user=>{
        cb(null, user)
      })
      .catch(err=>{
-      //  console.log('holaa')
        return  cb(err)
      })
-    
   });
 

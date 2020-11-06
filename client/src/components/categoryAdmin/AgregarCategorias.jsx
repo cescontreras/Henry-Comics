@@ -1,143 +1,191 @@
-import React,{useEffect, useState} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Alert, Table } from 'reactstrap';
-import axios from 'axios';
-import {useSelector, useDispatch} from 'react-redux';
-import { getCategory } from '../../redux/categorias'
-import './AgregarCategorias.css'
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Alert, Table } from "reactstrap";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./AgregarCategorias.css";
+import { getCategory } from "../../redux/categorias";
 
-const url ='http://localhost:3001/category/';
+const url = "http://localhost:3001/category/";
 
-const AgregarCategorias = ({/* newCat,categories,getCat */}) =>{
-    
-    const categories = useSelector( store => store.categoryState.categories)
-    const dispatch = useDispatch()
-    
-    useEffect(()=>{
-        dispatch(getCategory())
-    },[])
+const AgregarCategorias = () => {
+	const categories = useSelector((store) => store.categoryState.categories);
+	const dispatch = useDispatch();
 
-    // ------------ALERTS--------------------
-    const [successPost, setSuccessPost] = useState()
-    const [visible, setVisible] = useState(false);
-    //-----------------------------------------------
-    
-    //-----------INPUT CHANGE------------------
-    const [categorie,setCategorie] = useState({
-        name:'',
-        description:''
-    });
-    
-    const handleInputChange =(e)=>{//toma el value del input
-        setCategorie({
-            ...categorie,
-            [e.target.name] : e.target.value
-        })
-    }
-    
-    const hangleChangeEdit = (e) => { //SELECCIONA CATEGORIA
-        setCategorie(e)  
-    }
-    //-----------------------------------------
+	useEffect(() => {
+		dispatch(getCategory());
+	}, []);
 
-    //------------CRUD----------------------
-    const postCategorie = async() =>{ // ------------> CREAR CATEGORIA
-        try{
-            await axios.post(url, categorie, { withCredentials: true })
-            setSuccessPost(true)
-            setVisible(true)
-            dispatch(getCategory())          
-        }
-        catch(e){
-            setSuccessPost(false);
-            setVisible(true);             
-        }
-    }
+	// ------------ALERTS--------------------
+	const [successPost, setSuccessPost] = useState();
+	const [visible, setVisible] = useState(false);
 
-    const handleChangeDelete = async(e) => { // --------> ELIMINAR CATEGORIA
-        try{
-            await axios.delete(`http://localhost:3001/category/${e}`, { withCredentials: true })
-            setSuccessPost(true)
-            setVisible(true);        
-        }
-        catch(e){
-            setSuccessPost(false);
-            setVisible(true);            
-        }
-        dispatch(getCategory())
-    }
+	//-----------INPUT CHANGE------------------
+	const [categorie, setCategorie] = useState({
+		name: "",
+		description: "",
+	});
 
-    const handleSave = async()=> { // -------------> EDITAR CATEGORIA
-        await axios.put(`http://localhost:3001/category/${categorie.id}`,categorie, { withCredentials: true })
-        dispatch(getCategory())
-    }
+	const handleInputChange = (e) => {		
+		setCategorie({
+			...categorie,
+			[e.target.name]: e.target.value,
+		});
+	};
 
-    const onSubmit = (e)=>{ // DESPUES DE ENVIAR
-        e.preventDefault();
-        setCategorie({
-            name:'',
-            description:''
-        })
-    }
-    //---------------------------------------------------------------------
+	const hangleChangeEdit = (e) => {	
+		setCategorie(e);
+	};
 
-    const onDismiss = () => setVisible(false);
+	//------------CRUD----------------------
+	const postCategorie = async () => {
+		try {
+			await axios.post(url, categorie, { withCredentials: true });
+			setSuccessPost(true);
+			setVisible(true);
+			dispatch(getCategory());
+		} catch (e) {
+			setSuccessPost(false);
+			setVisible(true);
+		}
+	};
 
-    return(
-        <div className='formCategories'>
-            <div className='row justify-content-left'>
-                <div className='col-sm-4 flex-start	'>
-                    <form className= 'formCat'onSubmit={onSubmit}>
-                        <h3>Crear Categoría</h3>
-                        <p>Completa el formulario con la información necesaria para agregar una nueva categoría de producto.</p>
-                        <div className="form-group">
-                            <label>Nombre de la nueva categoría:</label><br />
-                            <input className='form-control' type='text' name='name' onChange={handleInputChange} value={categorie.name} />
-                        </div>
-                        <div className="form-group">
-                            <label>Descripción:</label><br />
-                            <textarea className='form-control' name='description' onChange={handleInputChange} value={categorie.description}/>
-                        </div>
-                        <button class="btn btn-secondary" type='submit' onClick={postCategorie}>Crear nueva categoría</button>
-                        {categorie.id && <button class="btn btn-primary" type='submit' onClick={() => handleSave()}>Guardar</button>}
-                    </form>
-                    {successPost ? 
-                        <Alert className= 'alert' color="success" isOpen={visible} toggle={onDismiss} >
-                        ¡Operacion exitosa!
-                        </Alert> :
-                        <Alert className= 'alert' color="danger" isOpen={visible} toggle={onDismiss} >
-                        Error !!
-                        </Alert>
-                    }
-                </div>
-                <div /* className='col-lg w-100 */>
-                    <Table /* className='table table-hover table-responsive w-100' */ bordered>
-                        <thead>
-                            <tr>
-                                <th /* className='th' */>Id</th>
-                                <th /* className='th' */>Nombre</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {categories && categories.map(ele=>(
-                            <tr>
-                                <td /* className= 'table table-responsive' */>{ele.id}</td>
-                                <td className="w-50">{ele.name}</td>
-                                <td /* className="w-100" */ style={{width:'300px'}}>
-                                    <button className="btn btn-secondary btn-sm m-2 p-1" onClick={()=>{hangleChangeEdit(ele)}} >Editar</button>
-                                  
-                                    <button className="btn btn-dark btn-sm m-2 p-1" onClick={()=>{handleChangeDelete(ele.id)}}>Eliminar</button>
-                                </td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </Table>
-                </div>
-            </div>
-        </div>    
-    )
-}
+	const handleChangeDelete = async (e) => {	
+		try {
+			await axios.delete(`http://localhost:3001/category/${e}`, {
+				withCredentials: true,
+			});
+			setSuccessPost(true);
+			setVisible(true);
+		} catch (e) {
+			setSuccessPost(false);
+			setVisible(true);
+		}
+		dispatch(getCategory());
+	};
 
+	const handleSave = async () => {	
+		await axios.put(`http://localhost:3001/category/${categorie.id}`, categorie, {
+			withCredentials: true,
+		});
+		dispatch(getCategory());
+	};
 
-export default AgregarCategorias
+	const onSubmit = (e) => {		
+		e.preventDefault();
+		setCategorie({
+			name: "",
+			description: "",
+		});
+	};
+
+	const onDismiss = () => setVisible(false);
+
+	return (
+		<div className="formCategories">
+			<div className="row justify-content-left">
+				<div className="col-sm-4 flex-start	">
+					<form className="formCat" onSubmit={onSubmit}>
+						<h3>Crear Categoría</h3>
+						<p>
+							Completa el formulario con la información necesaria para agregar una
+							nueva categoría de producto.
+						</p>
+						<div className="form-group">
+							<label>Nombre de la nueva categoría:</label>
+							<br />
+							<input
+								className="form-control"
+								type="text"
+								name="name"
+								onChange={handleInputChange}
+								value={categorie.name}
+							/>
+						</div>
+						<div className="form-group">
+							<label>Descripción:</label>
+							<br />
+							<textarea
+								className="form-control"
+								name="description"
+								onChange={handleInputChange}
+								value={categorie.description}
+							/>
+						</div>
+						<button class="btn btn-secondary" type="submit" onClick={postCategorie}>
+							Crear nueva categoría
+						</button>
+						{categorie.id && (
+							<button
+								class="btn btn-primary"
+								type="submit"
+								onClick={() => handleSave()}
+							>
+								Guardar
+							</button>
+						)}
+					</form>
+					{successPost ? (
+						<Alert
+							className="alert"
+							color="success"
+							isOpen={visible}
+							toggle={onDismiss}
+						>
+							¡Operacion exitosa!
+						</Alert>
+					) : (
+						<Alert
+							className="alert"
+							color="danger"
+							isOpen={visible}
+							toggle={onDismiss}
+						>
+							Error !!
+						</Alert>
+					)}
+				</div>
+				<div>
+					<Table bordered>
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Nombre</th>
+								<th>Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							{categories &&
+								categories.map((ele) => (
+									<tr>
+										<td>{ele.id}</td>
+										<td className="w-50">{ele.name}</td>
+										<td style={{ width: "300px" }}>
+											<button
+												className="btn btn-secondary btn-sm m-2 p-1"
+												onClick={() => {
+													hangleChangeEdit(ele);
+												}}
+											>
+												Editar
+											</button>
+											<button
+												className="btn btn-dark btn-sm m-2 p-1"
+												onClick={() => {
+													handleChangeDelete(ele.id);
+												}}
+											>
+												Eliminar
+											</button>
+										</td>
+									</tr>
+								))}
+						</tbody>
+					</Table>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default AgregarCategorias;

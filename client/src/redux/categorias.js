@@ -41,17 +41,3 @@ export const getCategory = () => async(dispatch) => {
         console.log(error)
      }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
