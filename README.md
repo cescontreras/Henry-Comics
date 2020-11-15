@@ -43,15 +43,18 @@
 
 ![home2](https://user-images.githubusercontent.com/67916064/99161279-77819980-26cf-11eb-9d17-ecfbbdaa17fb.png)
 
--Catalogo
+- Catalogo
 
 ![catalog1](https://user-images.githubusercontent.com/67916064/99161277-73ee1280-26cf-11eb-92c7-01a702f72b80.png)
 
-- Wishlist, esta feature permite que si algun prodcuto requerido no está en stock, el usuario pueda avisar al administrador del sitio que el producto que busca no está y este lo 
-
-![wishlist1](https://user-images.githubusercontent.com/67916064/99161280-78b2c680-26cf-11eb-8b3a-f4ce81adcbfb.png)
+- Wishlist, esta feature permite que si algun producto requerido no está en stock, el usuario pueda pedir al administrador del sitio que consiga el item buscado y lo añada al catalogo para comprarlo
 
 ![wishlist2](https://user-images.githubusercontent.com/67916064/99161275-72bce580-26cf-11eb-971b-c8aeb02d60c9.png)
+
+- Wishlist, con este buscador el usuario simplemente ingresa el nombre del producto para ser buscado en una API externa y lo agrega a su wishlist personal, el administrador tiene acceso a la wishlist global
+![wishlist1](https://user-images.githubusercontent.com/67916064/99161280-78b2c680-26cf-11eb-8b3a-f4ce81adcbfb.png)
+
+
 
 
 
