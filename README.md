@@ -1,15 +1,8 @@
 <p align='left'>
     <img src='https://static.wixstatic.com/media/85087f_0d84cbeaeb824fca8f7ff18d7c9eaafd~mv2.png/v1/fill/w_160,h_30,al_c,q_85,usm_0.66_1.00_0.01/Logo_completo_Color_1PNG.webp'
     />    
- </p>
+ </p> 
 
-<p align="left">
-  <img src='https://user-images.githubusercontent.com/67916064/99161386-9896ba00-26d0-11eb-9d1c-3b9f0a3cc4fe.png' alt='Henry Comics' height=40 width=40
-    />
- </p>
- 
- 
- # Henry Comics
  Henry Comics es un proyecto e-commerce desarrollado en la etapa Labs de la carrera Full Stack Developer de Henry
 
 ## Objetivos del Proyecto
@@ -54,7 +47,10 @@
 - Wishlist, con este buscador el usuario simplemente ingresa el nombre del producto para ser buscado en una API externa y lo agrega a su wishlist personal, el administrador tiene acceso a la wishlist global
 ![wishlist1](https://user-images.githubusercontent.com/67916064/99161280-78b2c680-26cf-11eb-8b3a-f4ce81adcbfb.png)
 
-
+<p align="center">
+  <img src='https://user-images.githubusercontent.com/67916064/99161386-9896ba00-26d0-11eb-9d1c-3b9f0a3cc4fe.png' alt='Henry Comics' height=40 width=40
+    /> 
+ </p>
 
 
 
