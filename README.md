@@ -31,22 +31,22 @@
 ## Algunas imagenes
 - Landing Page
 
-![home1](https://user-images.githubusercontent.com/67916064/99161278-75b7d600-26cf-11eb-8dea-e17ac4a5f562.png)
+![home1](https://user-images.githubusercontent.com/67916064/99194199-c45f8180-275c-11eb-8cc0-d509b16762e4.png)
 
 - Vista de Estrenos
 
-![home2](https://user-images.githubusercontent.com/67916064/99161279-77819980-26cf-11eb-9d17-ecfbbdaa17fb.png)
+![home2](https://user-images.githubusercontent.com/67916064/99194202-c6294500-275c-11eb-815c-3f484e9cba14.png)
 
 - Catalogo
 
-![catalog1](https://user-images.githubusercontent.com/67916064/99161277-73ee1280-26cf-11eb-92c7-01a702f72b80.png)
+![catalog1](https://user-images.githubusercontent.com/67916064/99194196-c295be00-275c-11eb-885b-679686d490df.png)
 
 - Wishlist, esta feature permite que si algun producto requerido no está en stock, el usuario pueda pedir al administrador del sitio que consiga el item buscado y lo añada al catalogo para comprarlo
 
-![wishlist2](https://user-images.githubusercontent.com/67916064/99161275-72bce580-26cf-11eb-971b-c8aeb02d60c9.png)
+![wishlist2](https://user-images.githubusercontent.com/67916064/99194194-c1fd2780-275c-11eb-8abe-01fa2e6bf587.png)
 
 - Wishlist, con este buscador el usuario simplemente ingresa el nombre del producto para ser buscado en una API externa y lo agrega a su wishlist personal, el administrador tiene acceso a la wishlist global
-![wishlist1](https://user-images.githubusercontent.com/67916064/99161280-78b2c680-26cf-11eb-8b3a-f4ce81adcbfb.png)
+![wishlist1](https://user-images.githubusercontent.com/67916064/99194206-c75a7200-275c-11eb-8750-eacfa6675ecb.png)
 
 *****
 ### Instalacion
