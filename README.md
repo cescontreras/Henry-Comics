@@ -16,7 +16,7 @@
 
 ## Tecnologias utilizadas en el desarrollo
  
-- React
+- React (Hooks)
 - Redux
 - Bootstrap
 - Material UI
