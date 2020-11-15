@@ -21,7 +21,7 @@
 - Bootstrap
 - Material UI
 - Express
-- Postgres
+- PostgreSQL
 - Sequelize
 - NodeMailer
 - Passport
