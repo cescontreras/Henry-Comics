@@ -51,6 +51,11 @@
 *****
 ### Instalacion
 
+Actualmente las versiónes necesarias son:
+
+Node: 12.18.3 o mayor
+NPM: 6.14.16 o mayor
+
 ```
 $ cd api
 $ npm install
