@@ -47,6 +47,21 @@
 - Wishlist, con este buscador el usuario simplemente ingresa el nombre del producto para ser buscado en una API externa y lo agrega a su wishlist personal, el administrador tiene acceso a la wishlist global
 ![wishlist1](https://user-images.githubusercontent.com/67916064/99161280-78b2c680-26cf-11eb-8b3a-f4ce81adcbfb.png)
 
+*****
+### Instalacion
+
+```
+$ cd api
+$ npm install
+$ npm start
+
+$ cd client
+$ npm install
+$ npm start
+
+```
+
+*****
 <p align="center">
   <img src='https://user-images.githubusercontent.com/67916064/99161386-9896ba00-26d0-11eb-9d1c-3b9f0a3cc4fe.png' alt='Henry Comics' height=40 width=40
     /> 
