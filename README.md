@@ -6,14 +6,6 @@
 # Henry Comics
  Henry Comics es un proyecto e-commerce desarrollado en la etapa Labs de la carrera Full Stack Developer de Henry
 
-## Objetivos del Proyecto
- 
-- Construir una App JavaScript desde cero.
-- Aprender mejores prácticas.
-- Aprender y practicar el workflow de GIT.
-- Utilizar Metodologías Ágiles.
-- Trabajar en equipo.
-
 ## Tecnologias utilizadas en el desarrollo
  
 - React (Hooks)
